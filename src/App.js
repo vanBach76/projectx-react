@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { ApolloProvider } from '@apollo/react-hooks'
 import ApolloClient from 'apollo-boost'
-import CompanySelector from './components/CompanySelector'
 import Home from './components/Home';
 import { BrowserRouter, Route } from 'react-router-dom'
 
