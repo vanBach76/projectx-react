@@ -6,18 +6,20 @@ const style = {
     padding: '10px 10px'
 }
 
-function ReportPanel({ company }) {
+function ReportPanel({ company, year }) {
 
-    let reportCards = company.reportCards.map( reportCard => 
-        <div key={reportCard.period}>
-          <ReportCard reportCard={reportCard} />
-        </div>
-    )
+    let reportCards = company.reportCards
+        .filter(reportCard => reportCard.year === year)
+        .map(reportCard =>
+            <div key={reportCard.id}>
+                <ReportCard reportCard={reportCard} />
+            </div>
+        )
 
     return (
         <div style={style}>
-            <div className = "card-columns">
-                { reportCards }
+            <div className="card-columns">
+                {reportCards}
             </div>
         </div>
     )

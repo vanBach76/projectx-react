@@ -1,9 +1,9 @@
 import React from 'react';
-import YearSelector from 'react';
+import YearSelector from './YearSelector';
 
 function Yearbar(props) {
     let reportCards = props.selectedCompany.reportCards;
-    let distinctYears = new Set(reportCards.map(reportCard => reportCard.year));
+    let distinctYears = [...new Set(reportCards.map(reportCard => reportCard.year))];
     return (
         <div>
             <div className="bg-light">

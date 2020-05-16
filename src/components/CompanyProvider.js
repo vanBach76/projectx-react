@@ -31,7 +31,7 @@ class CompanyProvider extends Component {
     getLatestYear(selectedCompany) {
         return selectedCompany.reportCards
             .sort((a, b) => (a.year > b.year) ? 1 : -1)
-            .year;
+            [0].year;
     }
 
     selectYear(year) {
@@ -46,11 +46,12 @@ class CompanyProvider extends Component {
 
     render() {
         console.log('selectedCompany: ' + this.state.selectedCompany.name);
+        console.log('selectedYear: ' + this.state.selectedYear);
         return (
             <div className="container-fluid">
                 <div className="row">
                     <div className="col">
-                        <Yearbar selectedCompany={this.state.selectedCompany} selectCompany={this.selectCompany}/> 
+                        <Yearbar selectedCompany={this.state.selectedCompany} selectYear={this.selectYear}/> 
                     </div>
                 </div>
                 <div className="row">
@@ -58,7 +59,7 @@ class CompanyProvider extends Component {
                         <Sidebar companyList={this.state.companyList} selectCompany={this.selectCompany} />
                     </div>
                     <div className="col">
-                        <ReportPanel company={this.state.selectedCompany} />
+                        <ReportPanel company={this.state.selectedCompany} year={this.state.selectedYear} />
                     </div>
                 </div>
             </div>

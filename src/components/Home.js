@@ -13,6 +13,7 @@ const COMPANY_LIST = gql`
       currency,
       name,
       reportCards {
+        id,
         period,
         year,
         comment,
@@ -27,13 +28,16 @@ const COMPANY_LIST = gql`
 `;
 
 function Home() {
-
+  
     const { loading, error, data } = useQuery(COMPANY_LIST);
     if (loading) return <p>Loading...</p>;
     if (error) {
       console.log(error);
       return <p>Error :(</p>;
     }
+    
+
+
     let companyList = data.userById.companies;
 
     return (
