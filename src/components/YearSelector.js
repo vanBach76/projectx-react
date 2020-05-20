@@ -4,14 +4,14 @@ function YearSelector({ yearList, selectYear }) {
 
     let selectableYears = yearList.map((year) => (
         <div key={year}>
-                <button className="list-group-item list-group-item-action" onClick={() => selectYear(year)}>
+                <button className="btn btn-secondary btn-light" onClick={() => selectYear(year)}>
                     {year}
                 </button>
         </div>
     ));
 
     return (
-        <div className="list-group" >
+        <div className="btn-group"  >
                 { selectableYears }
         </div>
     );
