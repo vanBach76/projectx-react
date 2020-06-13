@@ -2,7 +2,6 @@ import React from 'react'
 import ReportCard from './ReportCard';
 
 const style = {
-    marginLeft: '160px', /* Same as the width of the sidebar */
     padding: '10px 10px'
 }
 
@@ -10,16 +9,14 @@ function ReportPanel({ company, year }) {
 
     let reportCards = company.reportCards
         .filter(reportCard => reportCard.year === year)
-        .map(reportCard =>
-            <div key={reportCard.id}>
-                <ReportCard reportCard={reportCard} />
-            </div>
+        .map(reportCard => 
+            <ReportCard reportCard={reportCard} key={ reportCard.id }/>
         )
 
     return (
-        <div style={style}>
-            <div className="card-columns">
-                {reportCards}
+        <div>
+            <div className="row" style={style}>
+                    {reportCards}
             </div>
         </div>
     )

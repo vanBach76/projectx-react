@@ -1,31 +1,27 @@
-import React from 'react'
-
+import React from 'react';
+import ReportData from './ReportData';
 
 function ReportCard({ reportCard }) {
-
-    let reportDataFields = reportCard.reportData.map(reportData =>
-        <div key={reportData.dataFieldName}>
-            <label htmlFor={reportData.dataFieldName}>{reportData.dataFieldName}</label>
-            <input type="text" className="form-control" id={reportData.dataFieldName} placeholder={reportData.dataFieldValue} />
-        </div>
-    )
-
     return (
-        <div className="card w-75" >
-            <div className="card-header">
-                {reportCard.period}
-            </div>
-            <div className="card-body">
-                <form>
-                    <div className="form-group">
+        <div className="col-sm-3">
+            <div className="card" >
+                <div className="card-header">
+                    {reportCard.period}
+                </div>
+                <div className="card-body">
+                    <form>
+                        <ReportData reportData={reportCard.reportData} />
                         <label htmlFor="commentInput">Comment</label>
-                        <input type="text" className="form-control" id="commentInput" placeholder={reportCard.comment} />
-                        {reportDataFields}
+                        <textarea className="form-control" id="commentInput" placeholder={reportCard.comment} />
+                    </form>
+                    <div className="button-group float-right p-1">
+                        <button className="btn btn-secondary btn-light m-1">Edit</button>
+                        <button className="btn btn-secondary btn-light m-1">Save</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default ReportCard;
