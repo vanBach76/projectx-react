@@ -38,6 +38,9 @@ class CompanyProvider extends Component {
     }
 
     getLatestYear(selectedCompany) {
+        if(!selectedCompany.reportCards || selectedCompany.reportCards.length === 0) {
+            return null;
+        }
         return selectedCompany.reportCards
             .sort((a, b) => (a.year > b.year) ? 1 : -1)
             [0].year;
@@ -64,7 +67,7 @@ class CompanyProvider extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-1" className="bg-light" style={columnStyle}>
+                    <div className="col-1 bg-light" style={columnStyle}>
                         <Sidebar companyList={this.state.companyList} selectCompany={this.selectCompany} />
                     </div>
                     <div className="col">

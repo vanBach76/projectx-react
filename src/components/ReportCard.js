@@ -11,7 +11,7 @@ function ReportCard({ reportCard }) {
                 <div className="card-body">
                     <form>
                         <ReportData reportData={reportCard.reportData} />
-                        <label htmlFor="commentInput">Comment</label>
+                        <label htmlFor="commentInput" className="float-left">Comment</label>
                         <textarea className="form-control" id="commentInput" placeholder={reportCard.comment} />
                     </form>
                     <div className="button-group float-right p-1">

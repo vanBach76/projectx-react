@@ -1,4 +1,1 @@
-1. How to add new report-data?
-2. How to add new report-cards?
-3. How to add edit existing report-cards/data?
-4. How to save?
+1. Send data via mutation from Save Data modal-button
