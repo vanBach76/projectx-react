@@ -42,8 +42,8 @@ class CompanyProvider extends Component {
             return null;
         }
         return selectedCompany.reportCards
-            .sort((a, b) => (a.year > b.year) ? 1 : -1)
-            [0].year;
+        .slice()
+        .sort((a, b) => (a.year > b.year) ? 1 : -1)[0].year;
     }
 
     selectYear(year) {

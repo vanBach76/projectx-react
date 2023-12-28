@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import { ApolloProvider } from '@apollo/react-hooks'
-import ApolloClient from 'apollo-boost'
-import Home from './components/Home';
-import { BrowserRouter, Route } from 'react-router-dom'
+import Home from './components/Home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:8080/graphql'
+  uri: 'http://localhost:8080/graphql',
+  cache: new InMemoryCache()
 })
 
 function App() {
@@ -14,7 +14,9 @@ function App() {
     <div className="App">
       <ApolloProvider client={client}>
         <BrowserRouter>
-          <Route exact path="/" component={ Home }/>        
+          <Routes>
+            <Route exact path="/" element={ <Home /> }/>        
+          </Routes>
         </BrowserRouter>
       </ApolloProvider>
     </div>

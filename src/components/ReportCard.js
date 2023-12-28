@@ -3,7 +3,7 @@ import ReportData from './ReportData';
 
 function ReportCard({ reportCard }) {
     return (
-        <div className="col-sm-3">
+        <div className="col-sm-3" key={reportCard.id}>
             <div className="card" >
                 <div className="card-header">
                     {reportCard.period}

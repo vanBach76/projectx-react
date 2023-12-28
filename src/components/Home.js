@@ -18,6 +18,7 @@ const COMPANY_LIST = gql`
         year,
         comment,
         reportData {
+          id,
           dataFieldName,
           dataFieldValue
         }
